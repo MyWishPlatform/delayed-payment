@@ -3678,9 +3678,9 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, 
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-"sc-library@github:MyWishPlatform/sc-library#0.2.0":
+"sc-library@github:MyWishPlatform/sc-library#0.2.1":
   version "0.1.0"
-  resolved "https://codeload.github.com/MyWishPlatform/sc-library/tar.gz/52900a47e1c5dae26b000f6a21566c026bfadd6b"
+  resolved "https://codeload.github.com/MyWishPlatform/sc-library/tar.gz/1f648e58bd8e6425b069b942bf135602c50c22b0"
 
 scrypt.js@0.2.0, scrypt.js@^0.2.0:
   version "0.2.0"
