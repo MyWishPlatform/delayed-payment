@@ -3,14 +3,14 @@ require('chai')
     .use(require('chai-as-promised'))
     .should();
 
-const { increaseTime, revert, snapshot } = require('sc-library/test/evmMethods');
-const { web3async } = require('sc-library/test/web3Utils');
+const { increaseTime, revert, snapshot } = require('sc-library/scripts/evmMethods');
+const { web3async } = require('sc-library/scripts/web3Utils');
 
 const DelayedPayment = artifacts.require('./DelayedPayment.sol');
 
 const HOUR = 3600;
 
-contract('Token', accounts => {
+contract('Delayed Payment', accounts => {
     const OWNER = accounts[0];
     const BENEFICIARY = accounts[1];
 
