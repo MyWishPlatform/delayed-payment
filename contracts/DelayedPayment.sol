@@ -2,9 +2,10 @@ pragma solidity ^0.4.23;
 
 import "sc-library/contracts/Checkable.sol";
 import "sc-library/contracts/SoftDestruct.sol";
+import "sc-library/contracts/ERC223/ERC223Receiver.sol";
 
 
-contract DelayedPayment is SoftDestruct, Checkable {
+contract DelayedPayment is SoftDestruct, Checkable, ERC223Receiver {
     // Occurs when contract was killed.
     event Killed(bool byUser);
 
@@ -27,6 +28,10 @@ contract DelayedPayment is SoftDestruct, Checkable {
     function kill() public {
         super.kill();
         emit Killed(true);
+    }
+
+    function tokenFallback(address, uint, bytes) public {
+        revert(); // reject erc223 tokens
     }
 
     function internalCheck() internal returns (bool) {
