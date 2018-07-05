@@ -3,10 +3,11 @@ require('chai')
     .use(require('chai-as-promised'))
     .should();
 
-const { increaseTime, revert, snapshot } = require('sc-library/scripts/evmMethods');
-const { web3async } = require('sc-library/scripts/web3Utils');
+const { increaseTime, revert, snapshot } = require('sc-library/test-utils/evmMethods');
+const { web3async } = require('sc-library/test-utils/web3Utils');
 
 const DelayedPayment = artifacts.require('./DelayedPayment.sol');
+const SimpleERC223Token = artifacts.require('./SimpleERC223Token.sol');
 
 const HOUR = 3600;
 
@@ -32,7 +33,7 @@ contract('Delayed Payment', accounts => {
         contract.address.should.have.length(42);
     });
 
-    it('#2 check action cannot be performde before time', async () => {
+    it('#2 check action cannot be performed before time', async () => {
         const contract = await DelayedPayment.new(OWNER, BENEFICIARY, web3.toWei(1, 'ether'), now + HOUR);
         await contract.sendTransaction({ value: web3.toWei(1, 'ether') });
 
@@ -84,11 +85,19 @@ contract('Delayed Payment', accounts => {
         await contract.check().should.eventually.be.rejected;
     });
 
-    it('#6 check action cannot performed not by service account', async () => {
+    it('#7 check action cannot performed not by service account', async () => {
         const contract = await DelayedPayment.new(OWNER, BENEFICIARY, web3.toWei(1, 'ether'), now + HOUR);
         await contract.sendTransaction({ value: web3.toWei(10, 'ether') });
         await increaseTime(HOUR);
 
         await contract.check({ from: BENEFICIARY }).should.eventually.be.rejected;
+    });
+
+    it('#8 reject erc223 tokens', async () => {
+        const contract = await DelayedPayment.new(OWNER, BENEFICIARY, web3.toWei(1, 'ether'), now + HOUR);
+        await increaseTime(HOUR);
+        const erc223 = await SimpleERC223Token.new();
+        await erc223.transfer(contract.address, 1000).should.eventually.be.rejected;
+        await erc223.transfer(BENEFICIARY, 1000);
     });
 });
