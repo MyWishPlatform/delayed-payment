@@ -195,7 +195,7 @@ async-eventemitter@^0.2.2:
   dependencies:
     async "^2.4.0"
 
-"async-eventemitter@github:ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c":
+async-eventemitter@ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c:
   version "0.2.3"
   resolved "https://codeload.github.com/ahultgren/async-eventemitter/tar.gz/fa06e39e56786ba541c180061dbf2c0a5bbf951c"
   dependencies:
@@ -4252,9 +4252,9 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
-"sc-library@github:MyWishPlatform/sc-library#0.7.0":
-  version "0.7.0"
-  resolved "https://codeload.github.com/MyWishPlatform/sc-library/tar.gz/26b812c78b058da91551f0a2442f3f3d66249041"
+"sc-library@github:MyWishPlatform/sc-library#0.7.1":
+  version "0.7.1"
+  resolved "https://codeload.github.com/MyWishPlatform/sc-library/tar.gz/19c56ff00b7f1a17ea4b03b7491fc10e166b9062"
   dependencies:
     openzeppelin-solidity "1.10.0"
 

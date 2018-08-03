@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "openzeppelin-solidity": "1.10.0",
-    "sc-library": "github:MyWishPlatform/sc-library#0.7.0"
+    "sc-library": "github:MyWishPlatform/sc-library#0.7.1"
   }
 }
