@@ -1,6 +1,6 @@
 {
   "name": "delayed-payment",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "repository": "https://github.com/MyWishPlatform/delayed-payment.git",
   "license": "ISC",
   "scripts": {
@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "openzeppelin-solidity": "1.10.0",
-    "sc-library": "github:MyWishPlatform/sc-library#0.7.0"
+    "sc-library": "github:MyWishPlatform/sc-library#0.7.1"
   }
 }
